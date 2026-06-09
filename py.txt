@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+warnings.filterwarnings("ignore")
+
+url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
+df = pd.read_csv(url)
+print("Dataset Loaded!")
+print(df.head())
+print(df.describe())
+
+plt.figure(figsize=(10,6))
+sns.countplot(x="Survived", hue="Sex", data=df, palette="Set1")
+plt.title("Titanic - Survival by Gender")
+plt.savefig("eda_result.png")
+plt.show()
+print("Done! Chart saved as eda_result.png")
